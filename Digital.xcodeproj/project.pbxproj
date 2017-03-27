@@ -14,6 +14,7 @@
 		2EF90AF51E88C1E000F542C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF90AF31E88C1E000F542C8 /* LaunchScreen.storyboard */; };
 		2EF90B001E88C1E000F542C8 /* DigitalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF90AFF1E88C1E000F542C8 /* DigitalTests.swift */; };
 		2EF90B0B1E88C1E000F542C8 /* DigitalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF90B0A1E88C1E000F542C8 /* DigitalUITests.swift */; };
+		2EF90B1A1E899F7D00F542C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF90B191E899F7D00F542C8 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2EF90B061E88C1E000F542C8 /* DigitalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF90B0A1E88C1E000F542C8 /* DigitalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalUITests.swift; sourceTree = "<group>"; };
 		2EF90B0C1E88C1E000F542C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF90B191E899F7D00F542C8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		2EF90AE91E88C1E000F542C8 /* Digital */ = {
 			isa = PBXGroup;
 			children = (
+				2EF90B181E899F7200F542C8 /* Utils */,
 				2EF90AEA1E88C1E000F542C8 /* AppDelegate.swift */,
 				2EF90AEC1E88C1E000F542C8 /* ViewController.swift */,
 				2EF90AEE1E88C1E000F542C8 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				2EF90B0C1E88C1E000F542C8 /* Info.plist */,
 			);
 			path = DigitalUITests;
+			sourceTree = "<group>";
+		};
+		2EF90B181E899F7200F542C8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2EF90B191E899F7D00F542C8 /* Extensions.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF90AED1E88C1E000F542C8 /* ViewController.swift in Sources */,
+				2EF90B1A1E899F7D00F542C8 /* Extensions.swift in Sources */,
 				2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +526,7 @@
 				2EF90B111E88C1E000F542C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EF90B121E88C1E000F542C8 /* Build configuration list for PBXNativeTarget "DigitalTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +535,7 @@
 				2EF90B141E88C1E000F542C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EF90B151E88C1E000F542C8 /* Build configuration list for PBXNativeTarget "DigitalUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +544,7 @@
 				2EF90B171E88C1E000F542C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
