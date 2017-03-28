@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ViewController: UIViewController {
 
@@ -14,47 +16,91 @@ class ViewController: UIViewController {
     let plusPhotoButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "plusicon").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(menuButtonCall), for: .touchUpInside)
         return button
     }()
+    
+    func menuButtonCall() {
+        
+    }
     
     let emailTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Email"
         tf.backgroundColor = UIColor(white: 1, alpha: 1)
         tf.borderStyle = .roundedRect
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     
     let usernameTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Email"
+        tf.placeholder = "username"
         tf.backgroundColor = UIColor(white: 1, alpha: 1)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return tf
     }()
     
     let passwordTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Email"
+        tf.placeholder = "password"
         tf.backgroundColor = UIColor(white: 1, alpha: 1)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
         tf.isSecureTextEntry = true
+        
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return tf
     }()
+    
+    func handleTextInputChange() {
+        
+        let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 &&
+        usernameTextField.text?.characters.count ?? 0 > 0 &&
+        passwordTextField.text?.characters.count ?? 0 > 0
+        
+        if isFormValid {
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        } else {
+            signUpButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+            signUpButton.isEnabled = false
+        }
+    }
     
     let signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
-        
-        
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         return button
     }()
+    
+    func handleSignUp() {
+        
+        guard let email = emailTextField.text, email.characters.count > 0 else { return }
+        guard let username = usernameTextField.text, username.characters.count > 0 else { return }
+        guard let password = passwordTextField.text, password.characters.count > 0 else { return }
+        
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
+            
+            if let err = error {
+                print("failed to create user:", err)
+                return
+            }
+            
+            print("Successfully created user:", user?.uid ?? "")
+            
+        })
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
