@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
+        window = UIWindow()
+       window?.rootViewController = MainTabBarController()
+  
+//        window?.rootViewController = ViewController()
         return true
     }
 

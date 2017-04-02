@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2173DE1E8D68C1003B6A75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173DD1E8D68C1003B6A75 /* MainTabBarController.swift */; };
+		2E2173E01E8D6971003B6A75 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173DF1E8D6971003B6A75 /* UserProfileController.swift */; };
+		2E2173E81E8DB34D003B6A75 /* CreateGiffFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173E71E8DB34D003B6A75 /* CreateGiffFirstVC.m */; };
+		2E2173EA1E8DB500003B6A75 /* CreateGifSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173E91E8DB500003B6A75 /* CreateGifSecondVC.m */; };
+		2E2173EE1E8DB5D4003B6A75 /* CreateGifSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173ED1E8DB5D4003B6A75 /* CreateGifSecondVC.swift */; };
+		2E2173F01E8DB5E6003B6A75 /* CreateGiffFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */; };
 		2E34BD861E8B039D00E7EC15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */; };
+		2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */; };
 		2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92171E8A05900021334D /* MenuViewController.swift */; };
 		2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92191E8A09DA0021334D /* Menu.swift */; };
 		2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF90AEA1E88C1E000F542C8 /* AppDelegate.swift */; };
@@ -43,7 +50,17 @@
 /* Begin PBXFileReference section */
 		1AA382F650413212CC075616 /* Pods-DigitalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalUITests/Pods-DigitalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE1F985FEBCF7A05811F6AA /* Pods-DigitalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalTests/Pods-DigitalTests.release.xcconfig"; sourceTree = "<group>"; };
+		2E2173DD1E8D68C1003B6A75 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2E2173DF1E8D6971003B6A75 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		2E2173E51E8DB271003B6A75 /* CreateGiffFirstVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGiffFirstVC.h; sourceTree = "<group>"; };
+		2E2173E61E8DB34D003B6A75 /* Digital-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Digital-Bridging-Header.h"; sourceTree = "<group>"; };
+		2E2173E71E8DB34D003B6A75 /* CreateGiffFirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGiffFirstVC.m; sourceTree = "<group>"; };
+		2E2173E91E8DB500003B6A75 /* CreateGifSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGifSecondVC.m; sourceTree = "<group>"; };
+		2E2173EB1E8DB54A003B6A75 /* CreateGifSecondVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGifSecondVC.h; sourceTree = "<group>"; };
+		2E2173ED1E8DB5D4003B6A75 /* CreateGifSecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGifSecondVC.swift; sourceTree = "<group>"; };
+		2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGiffFirstVC.swift; sourceTree = "<group>"; };
 		2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		2EDE92171E8A05900021334D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2EDE92191E8A09DA0021334D /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2EF90AE71E88C1E000F542C8 /* Digital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digital.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +114,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E2173E11E8D6993003B6A75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2E2173E21E8D6998003B6A75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2E2173E31E8D699B003B6A75 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2EDE92171E8A05900021334D /* MenuViewController.swift */,
+				2E2173DD1E8D68C1003B6A75 /* MainTabBarController.swift */,
+				2EF90AEC1E88C1E000F542C8 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2E2173E41E8DB257003B6A75 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				2E2173EC1E8DB5BF003B6A75 /* Swift */,
+				2E2173E51E8DB271003B6A75 /* CreateGiffFirstVC.h */,
+				2E2173E71E8DB34D003B6A75 /* CreateGiffFirstVC.m */,
+				2E2173E91E8DB500003B6A75 /* CreateGifSecondVC.m */,
+				2E2173EB1E8DB54A003B6A75 /* CreateGifSecondVC.h */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		2E2173EC1E8DB5BF003B6A75 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				2E2173ED1E8DB5D4003B6A75 /* CreateGifSecondVC.swift */,
+				2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		2E69F1AB1E8EB36500AD8CF8 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				2E2173DF1E8D6971003B6A75 /* UserProfileController.swift */,
+				2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */,
+			);
+			name = UserProfile;
+			sourceTree = "<group>";
+		};
 		2EF90ADE1E88C1E000F542C8 = {
 			isa = PBXGroup;
 			children = (
@@ -122,15 +193,19 @@
 		2EF90AE91E88C1E000F542C8 /* Digital */ = {
 			isa = PBXGroup;
 			children = (
+				2E69F1AB1E8EB36500AD8CF8 /* UserProfile */,
+				2E2173E61E8DB34D003B6A75 /* Digital-Bridging-Header.h */,
+				2E2173E41E8DB257003B6A75 /* Camera */,
+				2E2173E31E8D699B003B6A75 /* Controller */,
+				2E2173E21E8D6998003B6A75 /* View */,
+				2E2173E11E8D6993003B6A75 /* Model */,
 				2EF90B181E899F7200F542C8 /* Utils */,
 				2EF90AEA1E88C1E000F542C8 /* AppDelegate.swift */,
-				2EF90AEC1E88C1E000F542C8 /* ViewController.swift */,
 				2EF90AEE1E88C1E000F542C8 /* Main.storyboard */,
 				2EF90AF11E88C1E000F542C8 /* Assets.xcassets */,
 				2EF90AF31E88C1E000F542C8 /* LaunchScreen.storyboard */,
 				2EF90AF61E88C1E000F542C8 /* Info.plist */,
 				2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */,
-				2EDE92171E8A05900021334D /* MenuViewController.swift */,
 				2EDE92191E8A09DA0021334D /* Menu.swift */,
 			);
 			path = Digital;
@@ -263,6 +338,7 @@
 					2EF90AE61E88C1E000F542C8 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BLYGK7F49E;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					2EF90AFA1E88C1E000F542C8 = {
@@ -472,9 +548,16 @@
 			files = (
 				2EF90AED1E88C1E000F542C8 /* ViewController.swift in Sources */,
 				2EF90B1A1E899F7D00F542C8 /* Extensions.swift in Sources */,
+				2E2173EA1E8DB500003B6A75 /* CreateGifSecondVC.m in Sources */,
+				2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */,
+				2E2173DE1E8D68C1003B6A75 /* MainTabBarController.swift in Sources */,
 				2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */,
+				2E2173E01E8D6971003B6A75 /* UserProfileController.swift in Sources */,
 				2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */,
+				2E2173F01E8DB5E6003B6A75 /* CreateGiffFirstVC.swift in Sources */,
+				2E2173EE1E8DB5D4003B6A75 /* CreateGifSecondVC.swift in Sources */,
 				2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */,
+				2E2173E81E8DB34D003B6A75 /* CreateGiffFirstVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,11 +710,14 @@
 			baseConfigurationReference = 819A240CD270842EC881D9F5 /* Pods-Digital.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = BLYGK7F49E;
 				INFOPLIST_FILE = Digital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Andryuschenko.Digital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Digital/Digital-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -641,11 +727,13 @@
 			baseConfigurationReference = A5DA87EF31B985001576D33D /* Pods-Digital.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = BLYGK7F49E;
 				INFOPLIST_FILE = Digital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Andryuschenko.Digital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Digital/Digital-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -153,6 +153,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         return
                     }
                     print("Successfully saved user info to db")
+                    
+                    let mainTabBarController = MainTabBarController()
+                    self.present(mainTabBarController, animated: true, completion: nil)
                 })
                 
             })
