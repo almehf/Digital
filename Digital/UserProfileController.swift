@@ -96,6 +96,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     }
     
     var user: User?
+    
     fileprivate func fetchUser() {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
         
