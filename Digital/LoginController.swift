@@ -49,7 +49,7 @@ class LoginController: UIViewController {
         tf.font = UIFont.systemFont(ofSize: 14)
         tf.isSecureTextEntry = true
         
-    //    tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return tf
     }()
     
@@ -79,6 +79,21 @@ class LoginController: UIViewController {
     }()
     
     
+    func handleTextInputChange() {
+        
+        let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 &&
+            passwordTextField.text?.characters.count ?? 0 > 0
+        
+        if isFormValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        } else {
+            loginButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+            loginButton.isEnabled = false
+        }
+    }
+    
+    
     
     func handleLogin() {
         
@@ -94,9 +109,13 @@ class LoginController: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 
                 if let error = error {
-                    print(error)
-                } else {
+                    print("Failed to sign in with email:", error)
                 }
+                
+                print("Successfully loggeed back in with user:", user?.uid ?? "")
+                guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                mainTabBarController.setupViewControllers()
+                self.dismiss(animated: true, completion: nil)
                 
             })
             
