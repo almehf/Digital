@@ -1,21 +1,22 @@
 //
-//  PhotoSelectorCell.swift
+//  PhotoSelectorHeader.swift
 //  Digital
 //
-//  Created by Nikolas Andryuschenko on 4/7/17.
+//  Created by Nikolas Andryuschenko on 4/8/17.
 //  Copyright © 2017 Andryuschenko. All rights reserved.
 //
 
-import UIKit
+
 import UIKit
 
-class PhotoSelectorCell: UICollectionViewCell {
+class PhotoSelectorHeader: UICollectionViewCell {
     
     let photoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        iv.backgroundColor = .lightGray
+        iv.clipsToBounds = true?
+        
+        iv.backgroundColor = .cyan
         return iv
     }()
     
