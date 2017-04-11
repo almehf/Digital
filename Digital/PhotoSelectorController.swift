@@ -30,6 +30,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedImage = images[indexPath.item]
         self.collectionView?.reloadData()
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
     
     var selectedImage: UIImage?
@@ -61,6 +64,7 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
                         self.images.append(image)
                         self.assets.append(asset)
                         
+                        // automatically the first image enumeration will be nil but this will automatically set the first image.
                         if self.selectedImage == nil {
                             self.selectedImage = image
                         }
@@ -87,8 +91,12 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
         return CGSize(width: width, height: width)
     }
     
+    var header: PhotoSelectorHeader?
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
+       
+        self.header = header
         
         header.photoImageView.image = selectedImage
         
@@ -150,7 +158,11 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func handleNext() {
-        print("Handling next")
+    
+        let sharePhotoController = SharePhotoController()
+        sharePhotoController.selectedImage = header?.photoImageView.image
+        navigationController?.pushViewController(sharePhotoController, animated: true)
+        
     }
     
     func handleCancel() {

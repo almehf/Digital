@@ -15,6 +15,7 @@
 		2E2173F01E8DB5E6003B6A75 /* CreateGiffFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */; };
 		2E34BD861E8B039D00E7EC15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */; };
 		2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36675E1E916F6000ADBE83 /* LoginController.swift */; };
+		2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */; };
 		2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */; };
 		2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */; };
 		2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */; };
@@ -65,6 +66,7 @@
 		2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGiffFirstVC.swift; sourceTree = "<group>"; };
 		2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E36675E1E916F6000ADBE83 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */,
 				2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */,
 				2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */,
+				2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */,
 			);
 			name = AddPhoto;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */,
 				2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */,
 				2E2173E01E8D6971003B6A75 /* UserProfileController.swift in Sources */,
+				2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */,
 				2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */,
 				2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */,
 				2E2173F01E8DB5E6003B6A75 /* CreateGiffFirstVC.swift in Sources */,
