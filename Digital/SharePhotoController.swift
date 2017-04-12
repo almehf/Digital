@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseDatabase
+import Firebase
 
 class SharePhotoController : UIViewController {
     
@@ -58,6 +61,51 @@ class SharePhotoController : UIViewController {
     }
     
     func handleShare() {
+        guard let image = selectedImage else { return }
+        guard let uploadData = UIImageJPEGRepresentation(image, 0.5) else { return }
+        
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        // random string
+        let filename = NSUUID().uuidString
+        FIRStorage.storage().reference().child("posts").child(filename).put(uploadData, metadata: nil) { (metadata, error) in
+            
+            if let error = error {
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                print("Failed to upload post to image:", error)
+            }
+            
+            guard let imageUrl = metadata?.downloadURL()?.absoluteString else { return }
+            
+            print("Successfully uploaded post image:", imageUrl)
+        
+            
+            self.saveToDatabaseWithImageUrl(imageUrl: imageUrl)
+        
+        }
+        
+    }
+    
+    fileprivate func saveToDatabaseWithImageUrl(imageUrl: String) {
+        guard let postImage = selectedImage else { return }
+        
+        guard let caption = textView.text else { return }
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        let userPostRef = FIRDatabase.database().reference().child("posts").child(uid)
+        
+        let ref = userPostRef.childByAutoId()
+        
+        let values = ["imageUrl": imageUrl, "caption": caption, "imageWithd": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]
+        ref.updateChildValues(values) { (error, ref) in
+            if let error = error {
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                print("failed to save to database", error)
+                return
+            }
+                print("successfully saved post to databates")
+                self.dismiss(animated: true, completion: nil)
+            
+        }
         
     }
     
