@@ -22,6 +22,8 @@
 		2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */; };
 		2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92171E8A05900021334D /* MenuViewController.swift */; };
 		2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92191E8A09DA0021334D /* Menu.swift */; };
+		2EED35A41EA270C000906D6D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED35A31EA270C000906D6D /* Post.swift */; };
+		2EED35A61EA2726A00906D6D /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED35A51EA2726A00906D6D /* UserProfilePhotoCell.swift */; };
 		2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF90AEA1E88C1E000F542C8 /* AppDelegate.swift */; };
 		2EF90AED1E88C1E000F542C8 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF90AEC1E88C1E000F542C8 /* SignUpController.swift */; };
 		2EF90AF01E88C1E000F542C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF90AEE1E88C1E000F542C8 /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		2EDE92171E8A05900021334D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2EDE92191E8A09DA0021334D /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		2EED35A31EA270C000906D6D /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2EED35A51EA2726A00906D6D /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
 		2EF90AE71E88C1E000F542C8 /* Digital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF90AEA1E88C1E000F542C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF90AEC1E88C1E000F542C8 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 		2E2173E11E8D6993003B6A75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2EED35A31EA270C000906D6D /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			children = (
 				2E2173DF1E8D6971003B6A75 /* UserProfileController.swift */,
 				2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */,
+				2EED35A51EA2726A00906D6D /* UserProfilePhotoCell.swift */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				2EF90B1A1E899F7D00F542C8 /* Extensions.swift in Sources */,
 				2E2173EA1E8DB500003B6A75 /* CreateGifSecondVC.m in Sources */,
 				2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */,
+				2EED35A61EA2726A00906D6D /* UserProfilePhotoCell.swift in Sources */,
 				2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */,
 				2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */,
 				2E2173DE1E8D68C1003B6A75 /* MainTabBarController.swift in Sources */,
@@ -592,6 +599,7 @@
 				2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */,
 				2E2173F01E8DB5E6003B6A75 /* CreateGiffFirstVC.swift in Sources */,
 				2E2173EE1E8DB5D4003B6A75 /* CreateGifSecondVC.swift in Sources */,
+				2EED35A41EA270C000906D6D /* Post.swift in Sources */,
 				2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */,
 				2E2173E81E8DB34D003B6A75 /* CreateGiffFirstVC.m in Sources */,
 			);
