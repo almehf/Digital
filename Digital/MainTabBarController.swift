@@ -33,7 +33,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         if FIRAuth.auth()?.currentUser == nil {
-            
+            print("User is nil")
             // lets us wait till the view is loaded and then presenting this.
                 DispatchQueue.main.async {
                     let loginController = LoginController()

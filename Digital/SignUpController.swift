@@ -110,7 +110,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }()
     
     func handleSignUp() {
-        
         guard let email = emailTextField.text, email.characters.count > 0 else { return }
         guard let username = usernameTextField.text, username.characters.count > 0 else { return }
         guard let password = passwordTextField.text, password.characters.count > 0 else { return }
@@ -118,29 +117,28 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             
             if let err = error {
-                print("failed to create user:", err)
+                print("Failed to create user:", err)
                 return
             }
             
             print("Successfully created user:", user?.uid ?? "")
-        
+            
             guard let image = self.plusPhotoButton.imageView?.image else { return }
             
             guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
             
             let filename = NSUUID().uuidString
-            
-            FIRStorage.storage().reference().child("profile_image").child(filename).put(uploadData, metadata: nil, completion: { (metadata, err) in
-              
+            FIRStorage.storage().reference().child("profile_images").child(filename).put(uploadData, metadata: nil, completion: { (metadata, err) in
+                
                 if let err = err {
                     print("Failed to upload profile image:", err)
                     return
                 }
                 
                 guard let profileImageUrl = metadata?.downloadURL()?.absoluteString else { return }
+                
                 print("Successfully uploaded profile image:", profileImageUrl)
-          
-                /////
+                
                 guard let uid = user?.uid else { return }
                 
                 let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
@@ -152,70 +150,30 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                         print("Failed to save user info into db:", err)
                         return
                     }
+                    
                     print("Successfully saved user info to db")
                     
-                    let mainTabBarController = MainTabBarController()
-                    self.present(mainTabBarController, animated: true, completion: nil)
+                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                    
+                    mainTabBarController.setupViewControllers()
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
                 })
                 
+                
             })
-          
+            
         })
-        
-        
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   
-        view.backgroundColor = UIColor(red:0.19, green:0.19, blue:0.19, alpha:1.0)
-        
-        view.addSubview(plusPhotoButton)
-     
-        plusPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-       
-        
-        plusPhotoButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
-        
-        setupInputFields()
-        
-        view.addSubview(alreadyHaveAccountButton)
-        alreadyHaveAccountButton.anchor(top: signUpButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-    }
-
-    fileprivate func setupInputFields() {
-        
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, signUpButton] )
-        stackView.distribution = .fillEqually
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        
-        view.addSubview(stackView)
-
-
-/*
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: plusPhotoButton.bottomAnchor, constant: 20),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
-            stackView.heightAnchor.constraint(equalToConstant: 200)
-            ])
-        
-*/
-        
-        stackView.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 200)
-        
-        
-        
-    }
-    
     
     let alreadyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         
-        let attributedTitle = NSMutableAttributedString(string: "Have an acount? ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.lightGray])
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.lightGray])
         
-        attributedTitle.append(NSAttributedString(string: "Login", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.rgb(red: 17, green: 154, blue: 237)]))
+        attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.rgb(red: 17, green: 154, blue: 237)
+            ]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
         
@@ -225,8 +183,39 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     
     func handleAlreadyHaveAccount() {
         _ = navigationController?.popViewController(animated: true)
-        print("WORKING")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.addSubview(alreadyHaveAccountButton)
+        alreadyHaveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
+        
+        view.backgroundColor = .white
+        
+        view.addSubview(plusPhotoButton)
+        
+        plusPhotoButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
+        
+        plusPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        setupInputFields()
+    }
+    
+    fileprivate func setupInputFields() {
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, signUpButton])
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        
+        view.addSubview(stackView)
+        
+        stackView.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 200)
     }
     
 }
+
+
+
+
 
