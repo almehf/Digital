@@ -18,6 +18,8 @@
 		2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */; };
 		2E5095FD1EA7C3C300F07EE2 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */; };
 		2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */; };
+		2E87C5C81EAA519F006332A7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87C5C71EAA519F006332A7 /* HomeController.swift */; };
+		2E87C5CA1EAA52AF006332A7 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */; };
 		2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */; };
 		2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */; };
 		2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */; };
@@ -72,6 +74,8 @@
 		2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
+		2E87C5C71EAA519F006332A7 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
@@ -194,6 +198,15 @@
 			name = UserProfile;
 			sourceTree = "<group>";
 		};
+		2E87C5C61EAA5192006332A7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2E87C5C71EAA519F006332A7 /* HomeController.swift */,
+				2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		2EA853811E96BB5C009929A6 /* AddPhoto */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +243,7 @@
 		2EF90AE91E88C1E000F542C8 /* Digital */ = {
 			isa = PBXGroup;
 			children = (
+				2E87C5C61EAA5192006332A7 /* Home */,
 				2EA853811E96BB5C009929A6 /* AddPhoto */,
 				2E36675D1E916F5100ADBE83 /* Login */,
 				2E69F1AB1E8EB36500AD8CF8 /* UserProfile */,
@@ -588,6 +602,7 @@
 			files = (
 				2EF90AED1E88C1E000F542C8 /* SignUpController.swift in Sources */,
 				2EF90B1A1E899F7D00F542C8 /* Extensions.swift in Sources */,
+				2E87C5C81EAA519F006332A7 /* HomeController.swift in Sources */,
 				2E2173EA1E8DB500003B6A75 /* CreateGifSecondVC.m in Sources */,
 				2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */,
 				2EED35A61EA2726A00906D6D /* UserProfilePhotoCell.swift in Sources */,
@@ -595,6 +610,7 @@
 				2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */,
 				2E2173DE1E8D68C1003B6A75 /* MainTabBarController.swift in Sources */,
 				2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */,
+				2E87C5CA1EAA52AF006332A7 /* HomePostCell.swift in Sources */,
 				2E5095FD1EA7C3C300F07EE2 /* CustomImageView.swift in Sources */,
 				2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */,
 				2E2173E01E8D6971003B6A75 /* UserProfileController.swift in Sources */,

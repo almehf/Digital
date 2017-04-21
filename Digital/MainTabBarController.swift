@@ -40,6 +40,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                     let navController = UINavigationController(rootViewController: loginController)
                     self.present(navController, animated: true, completion: nil)
             }
+            
             return
         
         }
@@ -52,7 +53,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func setupViewControllers() {
  
         
-        let homeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "homeunselected"), selectedImage: #imageLiteral(resourceName: "homeselected"), rootViewController: UserProfileController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let homeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "homeunselected"), selectedImage: #imageLiteral(resourceName: "homeselected"), rootViewController: HomeController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         let searchNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "Searchunselected"), selectedImage: #imageLiteral(resourceName: "Searchselected"))
         
