@@ -23,6 +23,7 @@
 		2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */; };
 		2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */; };
 		2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */; };
+		2ECB66981EABA5CE00F4E117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB66971EABA5CE00F4E117 /* User.swift */; };
 		2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92171E8A05900021334D /* MenuViewController.swift */; };
 		2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92191E8A09DA0021334D /* Menu.swift */; };
 		2EED35A41EA270C000906D6D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED35A31EA270C000906D6D /* Post.swift */; };
@@ -79,6 +80,7 @@
 		2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
+		2ECB66971EABA5CE00F4E117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EDE92171E8A05900021334D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2EDE92191E8A09DA0021334D /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2EED35A31EA270C000906D6D /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2EED35A31EA270C000906D6D /* Post.swift */,
+				2ECB66971EABA5CE00F4E117 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				2EF90AE51E88C1E000F542C8 /* Resources */,
 				9B236DCCDAC87E88BFD09957 /* [CP] Embed Pods Frameworks */,
 				C8D0173A93F6AE0153150699 /* [CP] Copy Pods Resources */,
+				2E8CF0421EAAEC22002D180B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -394,6 +398,11 @@
 						DevelopmentTeam = BLYGK7F49E;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2EF90AFA1E88C1E000F542C8 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -472,6 +481,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DigitalTests/Pods-DigitalTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2E8CF0421EAAEC22002D180B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 895c14a92e0bca14514cff85e677db6f6b8e637f 6d3d456dc27ca82c6240191a8df2b1a7e06712a5c09436b7083fb28fb39e7239";
 		};
 		4368C5D7D420B70F31D42D8D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -622,6 +644,7 @@
 				2EED35A41EA270C000906D6D /* Post.swift in Sources */,
 				2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */,
 				2E2173E81E8DB34D003B6A75 /* CreateGiffFirstVC.m in Sources */,
+				2ECB66981EABA5CE00F4E117 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

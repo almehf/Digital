@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Fabric
+import DigitsKit
 
 class LoginController: UIViewController {
     
@@ -148,11 +150,56 @@ class LoginController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
         
-        
+       
+
+
     }
     
+
     fileprivate func setupInputFields() {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        
+        let authenticateButton = DGTAuthenticateButton { session, error in
+            if let phoneNumber = session?.phoneNumber {
+                // TODO: associate the session userID with your user model
+                let message = "Phone number: \(phoneNumber)"
+                let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: .none))
+                self.present(alertController, animated: true, completion: .none)
+               
+                let usersRef = FIRDatabase.database().reference().child("users")
+                usersRef.observe( .childAdded, with: { (snapshot) in
+                    print("this is the snapshot", snapshot)
+                    
+                    print("this is the snapshotKey", snapshot.key)
+                    
+                    let userIds = snapshot.key
+                    
+                    let userRef = FIRDatabase.database().reference().child("users").child(userIds)
+
+                    userRef.observe(.childAdded, with: { (snapshot) in
+                        print("the snapshot is", snapshot)
+                        
+                        if "Test" == "\(snapshot)" {
+                            print("WOWOOWOWOWOWOWOOW")
+                        }
+                        
+//                        
+//                        let user = User()
+//                        user.setValuesForKeys(dictionary)
+//                        self.lectures.append(user)
+                        
+                    })
+                    
+                })
+                
+                
+                
+            } else {
+                NSLog("Authentication error: %@", error!.localizedDescription)
+            }
+        }
+        
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, authenticateButton!])
         
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -161,6 +208,12 @@ class LoginController: UIViewController {
         view.addSubview(stackView)
         
         stackView.anchor(top: logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 140)
+    
+    
+        
+       
+    
+        
     }
     
 }

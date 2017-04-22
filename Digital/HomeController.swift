@@ -35,7 +35,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+
+        var height: CGFloat = 40 + 8 + 8
+        height += view.frame.width
+        height += 50
+        height += 80
+        
+        return CGSize(width: view.frame.width, height: height)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

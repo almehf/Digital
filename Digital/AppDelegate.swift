@@ -8,7 +8,8 @@
 
 import UIKit
 import Firebase
-
+import Fabric
+import DigitsKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
        window?.rootViewController = MainTabBarController()
-  
+        Fabric.with([Digits.self])
 //        window?.rootViewController = ViewController()
         return true
     }

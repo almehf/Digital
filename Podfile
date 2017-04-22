@@ -10,6 +10,8 @@ target 'Digital' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
+pod 'Fabric'
+pod 'Digits'
 
   target 'DigitalTests' do
     inherit! :search_paths
