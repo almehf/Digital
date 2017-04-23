@@ -43,10 +43,11 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             
-            let post = Post(dictionary: dictionary)
+            let post = Post(user: self.user!, dictionary: dictionary)
             
-            self.posts.append(post)
-            self.posts.reverse()
+            //self.posts.append(post)
+            //self.posts.reverse()
+            self.posts.insert(post, at: 0)
             
             self.collectionView?.reloadData()
             
@@ -67,7 +68,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
                 
                 guard let dictionary = value as? [String: Any] else { return }
                 
-                let post = Post(dictionary: dictionary)
+                let post = Post(user: self.user!, dictionary: dictionary)
                 self.posts.append(post)
             })
             
