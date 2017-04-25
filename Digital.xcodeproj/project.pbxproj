@@ -19,6 +19,8 @@
 		2E5095FD1EA7C3C300F07EE2 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */; };
 		2E69F1AD1E8EB37600AD8CF8 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */; };
 		2E79A26F1EAE5145004AF73D /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A26E1EAE5145004AF73D /* FirebaseUtils.swift */; };
+		2E79A2AF1EAF99ED004AF73D /* UserSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A2AE1EAF99ED004AF73D /* UserSearchController.swift */; };
+		2E79A2B11EAF9CB0004AF73D /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A2B01EAF9CB0004AF73D /* UserSearchCell.swift */; };
 		2E87C5C81EAA519F006332A7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87C5C71EAA519F006332A7 /* HomeController.swift */; };
 		2E87C5CA1EAA52AF006332A7 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */; };
 		2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */; };
@@ -77,6 +79,8 @@
 		2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		2E69F1AC1E8EB37600AD8CF8 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		2E79A26E1EAE5145004AF73D /* FirebaseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
+		2E79A2AE1EAF99ED004AF73D /* UserSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchController.swift; sourceTree = "<group>"; };
+		2E79A2B01EAF9CB0004AF73D /* UserSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
 		2E87C5C71EAA519F006332A7 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
@@ -203,6 +207,15 @@
 			name = UserProfile;
 			sourceTree = "<group>";
 		};
+		2E79A2AD1EAF99D8004AF73D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2E79A2AE1EAF99ED004AF73D /* UserSearchController.swift */,
+				2E79A2B01EAF9CB0004AF73D /* UserSearchCell.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		2E87C5C61EAA5192006332A7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +261,7 @@
 		2EF90AE91E88C1E000F542C8 /* Digital */ = {
 			isa = PBXGroup;
 			children = (
+				2E79A2AD1EAF99D8004AF73D /* Search */,
 				2E87C5C61EAA5192006332A7 /* Home */,
 				2EA853811E96BB5C009929A6 /* AddPhoto */,
 				2E36675D1E916F5100ADBE83 /* Login */,
@@ -630,6 +644,8 @@
 				2EF90B1A1E899F7D00F542C8 /* Extensions.swift in Sources */,
 				2E87C5C81EAA519F006332A7 /* HomeController.swift in Sources */,
 				2E2173EA1E8DB500003B6A75 /* CreateGifSecondVC.m in Sources */,
+				2E79A2AF1EAF99ED004AF73D /* UserSearchController.swift in Sources */,
+				2E79A2B11EAF9CB0004AF73D /* UserSearchCell.swift in Sources */,
 				2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */,
 				2EED35A61EA2726A00906D6D /* UserProfilePhotoCell.swift in Sources */,
 				2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */,
