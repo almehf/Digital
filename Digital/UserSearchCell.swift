@@ -10,6 +10,17 @@ import UIKit
 
 class UserSearchCell: UICollectionViewCell {
     
+    var user: User? {
+        didSet {
+            usernameLabel.text = user?.username
+            
+            guard let profileImageUrl = user?.profileImageUrl else { return }
+            
+            profileImageView.loadImage(urlString: profileImageUrl)
+
+        }
+    }
+    
     let profileImageView: CustomImageView = {
         let image = CustomImageView()
         image.contentMode = .scaleAspectFill
@@ -20,6 +31,7 @@ class UserSearchCell: UICollectionViewCell {
     let usernameLabel: UILabel = {
         let label = UILabel()
         label.text = "Username"
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
@@ -33,6 +45,7 @@ class UserSearchCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(profileImageView)
+        addSubview(usernameLabel)
         
         profileImageView.anchor(top: nil, left: leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 50, height: 50)
         
