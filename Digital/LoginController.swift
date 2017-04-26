@@ -155,39 +155,67 @@ class LoginController: UIViewController {
 
     }
     
-
+    
+    var users = [User]()
     fileprivate func setupInputFields() {
         
         let authenticateButton = DGTAuthenticateButton { session, error in
             if let phoneNumber = session?.phoneNumber {
                 // TODO: associate the session userID with your user model
                 let message = "Phone number: \(phoneNumber)"
+                print("THIS IS THE PHOEN NUMBER", phoneNumber)
                 let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: .none))
                 self.present(alertController, animated: true, completion: .none)
                
-                let usersRef = FIRDatabase.database().reference().child("users")
-                usersRef.observe( .childAdded, with: { (snapshot) in
-                    print("this is the snapshot", snapshot)
+                let ref = FIRDatabase.database().reference().child("users")
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
                     
-                    print("this is the snapshotKey", snapshot.key)
+                    guard let dictionaries = snapshot.value as? [String: Any] else {return }
                     
-                    let userIds = snapshot.key
-                    
-                    let userRef = FIRDatabase.database().reference().child("users").child(userIds)
-
-                    userRef.observe(.childAdded, with: { (snapshot) in
-                        print("the snapshot is", snapshot)
+                    dictionaries.forEach({ (key, value) in
+                        print(key, value)
                         
-                        if "Test" == "\(snapshot)" {
-                            print("WOWOOWOWOWOWOWOOW")
+                        guard let userDictionary = value as? [String: Any] else { return }
+                        
+                        
+                        let user = User(uid: key, dictionary: userDictionary)
+                        print(user.uid, user.username)
+                        
+                        self.users.append(user)
+                        
+                        if ("+1\(user.phoneNumber)") == phoneNumber{
+                            print("SUCCESS")
+                            
+                            
+                            FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password, completion: { (user, error) in
+                                
+                                if let error = error {
+                                    print("Failed to sign in with email:", error)
+                                }
+                                
+                                print("Successfully loggeed back in with user:", user?.uid ?? "")
+                                guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                                mainTabBarController.setupViewControllers()
+                                self.dismiss(animated: true, completion: nil)
+                                
+                            })
+                            
+                        } else {
+                            print("NAH")
                         }
                         
-//                        
-//                        let user = User()
-//                        user.setValuesForKeys(dictionary)
-//                        self.lectures.append(user)
                         
+                        //                if user.phoneNumber == PHONE_NUMBER {
+                        //                    FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, Error?) -> Void#>)
+                        //                }
+                        
+                        //                let uservalue = "Test1"
+                        //                if uservalue == "\(user.username)" {
+                        //                    print("uservalue printed")
+                        //                    print(user.profileImageUrl)
+                        //                }
+                        //
                     })
                     
                 })
@@ -198,6 +226,41 @@ class LoginController: UIViewController {
                 NSLog("Authentication error: %@", error!.localizedDescription)
             }
         }
+        
+        func fetchUsers() {
+            
+            let ref = FIRDatabase.database().reference().child("users")
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                guard let dictionaries = snapshot.value as? [String: Any] else {return }
+                
+                dictionaries.forEach({ (key, value) in
+                    print(key, value)
+                    
+                    guard let userDictionary = value as? [String: Any] else { return }
+                    
+                    
+                    let user = User(uid: key, dictionary: userDictionary)
+                    print(user.uid, user.username)
+                    
+                    self.users.append(user)
+                    
+                    //                if user.phoneNumber == PHONE_NUMBER {
+                    //                    FIRAuth.auth()?.signIn(withEmail: user.email, password: user.password, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, Error?) -> Void#>)
+                    //                }
+                    
+                    //                let uservalue = "Test1"
+                    //                if uservalue == "\(user.username)" {
+                    //                    print("uservalue printed")
+                    //                    print(user.profileImageUrl)
+                    //                }
+                    //
+                })
+                
+            })
+        }
+
+        
         
         let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, authenticateButton!])
         

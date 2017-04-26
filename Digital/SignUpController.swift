@@ -82,11 +82,25 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         return tf
     }()
     
+    let phoneNumberTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Phone Number"
+        tf.backgroundColor = UIColor(white: 1, alpha: 1)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
+        
+        tf.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        return tf
+    }()
+    
+    
+    
     func handleTextInputChange() {
         
         let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 &&
         usernameTextField.text?.characters.count ?? 0 > 0 &&
-        passwordTextField.text?.characters.count ?? 0 > 0
+        passwordTextField.text?.characters.count ?? 0 > 0 &&
+        phoneNumberTextField.text?.characters.count ?? 0 > 0
         
         if isFormValid {
             signUpButton.isEnabled = true
@@ -113,6 +127,8 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         guard let email = emailTextField.text, email.characters.count > 0 else { return }
         guard let username = usernameTextField.text, username.characters.count > 0 else { return }
         guard let password = passwordTextField.text, password.characters.count > 0 else { return }
+        guard let phoneNumber = phoneNumberTextField.text, phoneNumber.characters.count > 0 else { return }
+        
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             
@@ -141,7 +157,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                 
                 guard let uid = user?.uid else { return }
                 
-                let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
+                let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl, "email": email, "password": password, "phoneNumber": phoneNumber]
                 let values = [uid: dictionaryValues]
                 
                 FIRDatabase.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
@@ -203,7 +219,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     fileprivate func setupInputFields() {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, signUpButton])
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, phoneNumberTextField, signUpButton])
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 10
