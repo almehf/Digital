@@ -10,74 +10,45 @@ import UIKit
 import Firebase
 
 class UserProfileController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
     let cellId = "cellId"
+    
+    var userId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.backgroundColor = .white
-        
-        navigationItem.title = FIRAuth.auth()?.currentUser?.uid
-        
-        fetchUser()
-        
         collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
-        
         collectionView?.register(UserProfilePhotoCell.self, forCellWithReuseIdentifier: cellId)
         
         setupLogOutButton()
         
-        //        fetchPosts()
-        
-        fetchOrderedPosts()
+        fetchUser()
+        //fetchOrderedPosts()
     }
     
     var posts = [Post]()
     
     fileprivate func fetchOrderedPosts() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        guard let uid = self.user?.uid else { return }
         let ref = FIRDatabase.database().reference().child("posts").child(uid)
         
         //perhaps later on we'll implement some pagination of data
         ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             
-            let post = Post(user: self.user!, dictionary: dictionary)
+            guard let user = self.user else { return }
             
-            //self.posts.append(post)
-            //self.posts.reverse()
+            let post = Post(user: user, dictionary: dictionary)
+            
             self.posts.insert(post, at: 0)
+            //            self.posts.append(post)
             
             self.collectionView?.reloadData()
             
         }) { (err) in
             print("Failed to fetch ordered posts:", err)
         }
-    }
-    
-    fileprivate func fetchPosts() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-        
-        let ref = FIRDatabase.database().reference().child("posts").child(uid)
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            guard let dictionaries = snapshot.value as? [String: Any] else { return }
-            
-            dictionaries.forEach({ (key, value) in
-                
-                guard let dictionary = value as? [String: Any] else { return }
-                
-                let post = Post(user: self.user!, dictionary: dictionary)
-                self.posts.append(post)
-            })
-            
-            self.collectionView?.reloadData()
-            
-        }) { (err) in
-            print("Failed to fetch posts:", err)
-        }
-        
     }
     
     fileprivate func setupLogOutButton() {
@@ -151,22 +122,22 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     }
     
     var user: User?
-    
     fileprivate func fetchUser() {
-    
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        let uid = userId ?? (FIRAuth.auth()?.currentUser?.uid ?? "")
+        
+        //guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
         
         FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
             self.user = user
             self.navigationItem.title = self.user?.username
+            
             self.collectionView?.reloadData()
+            
+            self.fetchOrderedPosts()
         }
-    
     }
 }
-
-
-
 
 
 

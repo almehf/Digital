@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class UserSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     
@@ -26,9 +27,16 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
         searchBar.anchor(top: navBar?.topAnchor, left: navBar?.leftAnchor, bottom: navBar?.bottomAnchor, right: navBar?.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
         
         collectionView?.register(UserSearchCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.keyboardDismissMode = .onDrag
         
         fetchUsers()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchBar.isHidden = false
     }
     
     var filteredUsers = [User]()
@@ -41,7 +49,12 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
             guard let dictionaries = snapshot.value as? [String: Any] else {return }
 
             dictionaries.forEach({ (key, value) in
-                print(key, value)
+               
+                
+                if key == FIRAuth.auth()?.currentUser?.uid {
+                    print("Found Myself")
+                    return
+                }
                 
                 guard let userDictionary = value as? [String: Any] else { return }
                 
@@ -104,6 +117,19 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
             return user.username.lowercased().contains(searchText.lowercased())
         }
         self.collectionView?.reloadData()
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        searchBar.isHidden = true
+        searchBar.resignFirstResponder()
+        
+        let user = filteredUsers[indexPath.item]
+
+        let userProfileController = UserProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+        userProfileController.userId = user.uid
+        navigationController?.pushViewController(userProfileController, animated: true)
         
     }
     

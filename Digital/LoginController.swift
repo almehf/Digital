@@ -164,9 +164,9 @@ class LoginController: UIViewController {
                 // TODO: associate the session userID with your user model
                 let message = "Phone number: \(phoneNumber)"
                 print("THIS IS THE PHOEN NUMBER", phoneNumber)
-                let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: .none))
-                self.present(alertController, animated: true, completion: .none)
+//                let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
+//                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: .none))
+//                self.present(alertController, animated: true, completion: .none)
                
                 let ref = FIRDatabase.database().reference().child("users")
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in

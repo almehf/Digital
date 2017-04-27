@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1D79631EB260970047022A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E1D79621EB260970047022A /* GoogleService-Info.plist */; };
 		2E2173DE1E8D68C1003B6A75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173DD1E8D68C1003B6A75 /* MainTabBarController.swift */; };
 		2E2173E01E8D6971003B6A75 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173DF1E8D6971003B6A75 /* UserProfileController.swift */; };
 		2E2173E81E8DB34D003B6A75 /* CreateGiffFirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173E71E8DB34D003B6A75 /* CreateGiffFirstVC.m */; };
 		2E2173EA1E8DB500003B6A75 /* CreateGifSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173E91E8DB500003B6A75 /* CreateGifSecondVC.m */; };
 		2E2173EE1E8DB5D4003B6A75 /* CreateGifSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173ED1E8DB5D4003B6A75 /* CreateGifSecondVC.swift */; };
 		2E2173F01E8DB5E6003B6A75 /* CreateGiffFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */; };
-		2E34BD861E8B039D00E7EC15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */; };
 		2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36675E1E916F6000ADBE83 /* LoginController.swift */; };
 		2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */; };
 		2E5095FD1EA7C3C300F07EE2 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */; };
@@ -64,6 +64,8 @@
 /* Begin PBXFileReference section */
 		1AA382F650413212CC075616 /* Pods-DigitalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalUITests/Pods-DigitalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE1F985FEBCF7A05811F6AA /* Pods-DigitalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalTests/Pods-DigitalTests.release.xcconfig"; sourceTree = "<group>"; };
+		2E1D79611EB260550047022A /* Digital.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Digital.entitlements; sourceTree = "<group>"; };
+		2E1D79621EB260970047022A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E2173DD1E8D68C1003B6A75 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2E2173DF1E8D6971003B6A75 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		2E2173E51E8DB271003B6A75 /* CreateGiffFirstVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGiffFirstVC.h; sourceTree = "<group>"; };
@@ -73,7 +75,6 @@
 		2E2173EB1E8DB54A003B6A75 /* CreateGifSecondVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGifSecondVC.h; sourceTree = "<group>"; };
 		2E2173ED1E8DB5D4003B6A75 /* CreateGifSecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGifSecondVC.swift; sourceTree = "<group>"; };
 		2E2173EF1E8DB5E6003B6A75 /* CreateGiffFirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGiffFirstVC.swift; sourceTree = "<group>"; };
-		2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E36675E1E916F6000ADBE83 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -261,6 +262,7 @@
 		2EF90AE91E88C1E000F542C8 /* Digital */ = {
 			isa = PBXGroup;
 			children = (
+				2E1D79611EB260550047022A /* Digital.entitlements */,
 				2E79A2AD1EAF99D8004AF73D /* Search */,
 				2E87C5C61EAA5192006332A7 /* Home */,
 				2EA853811E96BB5C009929A6 /* AddPhoto */,
@@ -277,8 +279,8 @@
 				2EF90AF11E88C1E000F542C8 /* Assets.xcassets */,
 				2EF90AF31E88C1E000F542C8 /* LaunchScreen.storyboard */,
 				2EF90AF61E88C1E000F542C8 /* Info.plist */,
-				2E34BD851E8B039D00E7EC15 /* GoogleService-Info.plist */,
 				2EDE92191E8A09DA0021334D /* Menu.swift */,
+				2E1D79621EB260970047022A /* GoogleService-Info.plist */,
 			);
 			path = Digital;
 			sourceTree = "<group>";
@@ -412,11 +414,14 @@
 				TargetAttributes = {
 					2EF90AE61E88C1E000F542C8 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BLYGK7F49E;
+						DevelopmentTeam = 523V3UVQR9;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -461,7 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF90AF51E88C1E000F542C8 /* LaunchScreen.storyboard in Resources */,
-				2E34BD861E8B039D00E7EC15 /* GoogleService-Info.plist in Resources */,
+				2E1D79631EB260970047022A /* GoogleService-Info.plist in Resources */,
 				2EF90AF21E88C1E000F542C8 /* Assets.xcassets in Resources */,
 				2EF90AF01E88C1E000F542C8 /* Main.storyboard in Resources */,
 			);
@@ -818,10 +823,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = BLYGK7F49E;
+				CODE_SIGN_ENTITLEMENTS = Digital/Digital.entitlements;
+				DEVELOPMENT_TEAM = 523V3UVQR9;
 				INFOPLIST_FILE = Digital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Andryuschenko.Digital;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Andryuschenko.Digital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Digital/Digital-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -835,10 +841,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = BLYGK7F49E;
+				CODE_SIGN_ENTITLEMENTS = Digital/Digital.entitlements;
+				DEVELOPMENT_TEAM = 523V3UVQR9;
 				INFOPLIST_FILE = Digital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Andryuschenko.Digital;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Andryuschenko.Digital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Digital/Digital-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
