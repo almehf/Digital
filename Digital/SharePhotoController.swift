@@ -86,6 +86,9 @@ class SharePhotoController : UIViewController {
         
     }
     
+    static let updateFeedNotificationName = NSNotification.Name(rawValue: "UpdateFeed")
+    
+    
     fileprivate func saveToDatabaseWithImageUrl(imageUrl: String) {
         guard let postImage = selectedImage else { return }
         
@@ -105,6 +108,7 @@ class SharePhotoController : UIViewController {
                 print("successfully saved post to databates")
                 self.dismiss(animated: true, completion: nil)
             
+               NotificationCenter.default.post(name: SharePhotoController.updateFeedNotificationName , object: nil)
         }
         
     }
