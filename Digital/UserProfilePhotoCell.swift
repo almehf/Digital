@@ -11,7 +11,6 @@ import UIKit
 
 class UserProfilePhotoCell: UICollectionViewCell {
     
-    
     var post: Post? {
         didSet {
             guard let imageUrl = post?.imageUrl else { return }
@@ -21,7 +20,6 @@ class UserProfilePhotoCell: UICollectionViewCell {
     
     let photoImageView: CustomImageView = {
         let iv = CustomImageView()
-        iv.backgroundColor = .red
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -37,5 +35,4 @@ class UserProfilePhotoCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

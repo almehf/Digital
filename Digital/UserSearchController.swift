@@ -131,6 +131,7 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
         userProfileController.userId = user.uid
         navigationController?.pushViewController(userProfileController, animated: true)
         
+     
     }
     
     

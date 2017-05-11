@@ -22,6 +22,7 @@
 		2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */; };
 		2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */; };
 		2EC306781EC0BE580070C88A /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306771EC0BE580070C88A /* CameraController.swift */; };
+		2EC306A71EC503860070C88A /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */; };
 		2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */; };
 		2ECB66981EABA5CE00F4E117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB66971EABA5CE00F4E117 /* User.swift */; };
 		2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE92171E8A05900021334D /* MenuViewController.swift */; };
@@ -78,6 +79,7 @@
 		2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		2EC306771EC0BE580070C88A /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		2ECB66971EABA5CE00F4E117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EDE92171E8A05900021334D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2EC306771EC0BE580070C88A /* CameraController.swift */,
+				2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */,
 				2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */,
 				2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */,
+				2EC306A71EC503860070C88A /* PreviewPhotoContainerView.swift in Sources */,
 				2EED35A41EA270C000906D6D /* Post.swift in Sources */,
 				2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */,
 				2ECB66981EABA5CE00F4E117 /* User.swift in Sources */,
