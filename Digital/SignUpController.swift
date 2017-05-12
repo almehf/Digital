@@ -207,7 +207,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
         
         view.addSubview(plusPhotoButton)
         

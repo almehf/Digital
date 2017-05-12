@@ -17,8 +17,8 @@ class LoginController: UIViewController {
     let logoContainerView: UIView = {
         let view = UIView()
         
-        let logoImageView = UIImageView(image: #imageLiteral(resourceName: "iglogo"))
-        logoImageView.backgroundColor = .red
+        let logoImageView = UIImageView(image: #imageLiteral(resourceName: "DIGITAL"))
+
         logoImageView.contentMode = .scaleAspectFill
         view.addSubview(logoImageView)
         
@@ -26,7 +26,7 @@ class LoginController: UIViewController {
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        view.backgroundColor = UIColor.rgb(red: 0, green: 120, blue: 175)
+        view.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
         
         return view
     }()
@@ -138,7 +138,7 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
         navigationController?.isNavigationBarHidden = true
         
         view.addSubview(logoContainerView)

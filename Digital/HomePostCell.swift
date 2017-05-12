@@ -60,6 +60,7 @@ class HomePostCell: UICollectionViewCell {
         let label = UILabel()
         label.text  = "Username"
         label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .white
         return label
     }()
     
@@ -67,25 +68,30 @@ class HomePostCell: UICollectionViewCell {
        
         let button = UIButton()
         button.setTitle("•••", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
 
     let likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
+
+
         return button
     }()
     
     let commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
+       
+
         return button
     }()
     
     let sendToButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
+ 
         return button
     }()
     
@@ -100,7 +106,7 @@ class HomePostCell: UICollectionViewCell {
        
         let label = UILabel()
         label.numberOfLines = 0
-        
+         label.textColor = .white
         return label
     }()
     

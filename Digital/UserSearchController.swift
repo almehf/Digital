@@ -20,7 +20,7 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
         
         navigationController?.navigationBar.addSubview(searchBar)
         
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
         
         let navBar = navigationController?.navigationBar
         

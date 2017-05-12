@@ -43,6 +43,7 @@ class CameraController: UIViewController, AVCapturePhotoCaptureDelegate, UIViewC
         
         setupCaptureSession()
         setupHUD()
+        
     }
     
     let customAnimationPresentor = CustomAnimationPresentor()

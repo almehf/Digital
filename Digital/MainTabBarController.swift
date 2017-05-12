@@ -47,7 +47,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
 
         setupViewControllers()
-        
+        self.tabBarController?.tabBar.tintColor = .blue
+        self.tabBar.barTintColor = UIColor.rgb(red: 0, green: 0, blue: 0)
     }
     
     func setupViewControllers() {
@@ -71,7 +72,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
        
         
         
-        tabBar.tintColor = .black
+       
         
         viewControllers = [homeNavController, searchNavController, plusNavController, likeNavController, userProfileNavController]
         

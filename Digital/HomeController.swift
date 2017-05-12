@@ -19,7 +19,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateFeed), name: SharePhotoController.updateFeedNotificationName, object: nil)
         
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
         
         collectionView?.register(HomePostCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -30,6 +30,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         setupNavigationItems()
         
         fetchAllPosts()
+        
+            self.navigationController?.navigationBar.barTintColor  = UIColor.rgb(red: 0, green: 0, blue: 0)
+        
     }
     
     func handleUpdateFeed() {
@@ -103,10 +106,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func setupNavigationItems() {
- //       navigationItem.titleView = UIImageView(image:
-   navigationItem.title = "HELLO"
+        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "DIGITAL"))
+ 
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleCamera))
+ 
         
     }
     
