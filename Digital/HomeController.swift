@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout, HomePostCellDelegate {
     
     
     let cellId = "cellId"
@@ -121,6 +121,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         present(cameraController, animated: true, completion: nil)
     }
     
+    func didTapComment(post: Post) {
+        let commentsController = CommentsController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(commentsController, animated: true)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var height: CGFloat = 40 + 8 + 8 //username userprofileimageview
@@ -140,8 +146,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
         
         cell.post = posts[indexPath.item]
+        cell.delegate = self
         
         return cell
     }
+    
+    
     
 }

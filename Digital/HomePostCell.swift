@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol HomePostCellDelegate {
+    func didTapComment(post: Post)
+}
+
 class HomePostCell: UICollectionViewCell {
+ 
+    var delegate : HomePostCellDelegate?
     
     var post: Post? {
         didSet {
@@ -64,7 +70,7 @@ class HomePostCell: UICollectionViewCell {
         return label
     }()
     
-    let optionsButton: UIButton = {
+    lazy var optionsButton: UIButton = {
        
         let button = UIButton()
         button.setTitle("•••", for: .normal)
@@ -72,33 +78,34 @@ class HomePostCell: UICollectionViewCell {
         return button
     }()
 
-    let likeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
-
-
+    lazy var likeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysTemplate), for: .normal)
+         button.tintColor = .white
         return button
     }()
     
-    let commentButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
-       
-
+    lazy var commentButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(#imageLiteral(resourceName: "comment").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(handleComment), for: .touchUpInside)
+  
         return button
     }()
     
-    let sendToButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
- 
+    lazy var sendToButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(#imageLiteral(resourceName: "send2").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
         return button
     }()
     
     
-    let bookmarkButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
+    lazy var bookmarkButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(#imageLiteral(resourceName: "ribbon").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
         return button
     }()
     
@@ -132,6 +139,11 @@ class HomePostCell: UICollectionViewCell {
         
         setupActionButtons()
         
+    }
+    
+    func handleComment() {
+        guard let post = post else {return}
+        delegate?.didTapComment(post: post)
     }
     
     fileprivate func setupActionButtons() {
