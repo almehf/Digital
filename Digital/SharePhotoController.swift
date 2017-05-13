@@ -13,6 +13,9 @@ import Firebase
 
 class SharePhotoController : UIViewController {
     
+    
+    static var postIsPosted = false
+    
     var selectedImage: UIImage? {
         didSet {
                 self.imageView.image = selectedImage
@@ -106,13 +109,18 @@ class SharePhotoController : UIViewController {
                 return
             }
                 print("successfully saved post to databates")
-                self.dismiss(animated: true, completion: nil)
+            
+//            SharePhotoController.postIsPosted = true
+            
+//            let homeController = HomeController()
+           
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             
                NotificationCenter.default.post(name: SharePhotoController.updateFeedNotificationName , object: nil)
+
         }
         
     }
-    
 
     override var prefersStatusBarHidden: Bool {
         return true

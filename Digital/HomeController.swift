@@ -17,6 +17,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SharePhotoController.postIsPosted = false
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateFeed), name: SharePhotoController.updateFeedNotificationName, object: nil)
         
         collectionView?.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
@@ -117,8 +119,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func handleCamera() {
         
         
-        let cameraController = CameraController()
+        let cameraController = CameraViewController()
+        
         present(cameraController, animated: true, completion: nil)
+        
     }
     
     func didTapComment(post: Post) {

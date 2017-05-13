@@ -54,6 +54,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
   - Protobuf (3.2.1)
+  - SwiftyCam (2.3.0)
   - TwitterCore (2.8.0):
     - Fabric
 
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - SwiftyCam
 
 SPEC CHECKSUMS:
   Digits: 401151fdcc955738142d53b89112960d3c2e3930
@@ -80,8 +82,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
+  SwiftyCam: be1f832a32b12810e86e23a87caccadd855226ea
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
 
-PODFILE CHECKSUM: 1ae2749cf3f2ef5a44f1071de5181b0c92fae28f
+PODFILE CHECKSUM: fdd4f9656883e5ac24ec33a56453b80eb573beb9
 
 COCOAPODS: 1.2.0.beta.3
