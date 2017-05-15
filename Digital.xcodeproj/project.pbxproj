@@ -18,6 +18,7 @@
 		2E2541161EC7BF46005D0751 /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2541121EC7BF46005D0751 /* SwiftyCamButton.swift */; };
 		2E2541171EC7BF46005D0751 /* SwiftyCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2541131EC7BF46005D0751 /* SwiftyCamViewController.swift */; };
 		2E2541181EC7BF46005D0751 /* SwiftyCamViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2541141EC7BF46005D0751 /* SwiftyCamViewControllerDelegate.swift */; };
+		2E25411C1EC81916005D0751 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E25411B1EC81916005D0751 /* VideoPlayer.swift */; };
 		2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36675E1E916F6000ADBE83 /* LoginController.swift */; };
 		2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */; };
 		2E5095FD1EA7C3C300F07EE2 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */; };
@@ -86,6 +87,7 @@
 		2E2541121EC7BF46005D0751 /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		2E2541131EC7BF46005D0751 /* SwiftyCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewController.swift; sourceTree = "<group>"; };
 		2E2541141EC7BF46005D0751 /* SwiftyCamViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamViewControllerDelegate.swift; sourceTree = "<group>"; };
+		2E25411B1EC81916005D0751 /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		2E36675E1E916F6000ADBE83 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		2E5095FC1EA7C3C300F07EE2 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				2EF90AF61E88C1E000F542C8 /* Info.plist */,
 				2EDE92191E8A09DA0021334D /* Menu.swift */,
 				2E1D79621EB260970047022A /* GoogleService-Info.plist */,
+				2E25411B1EC81916005D0751 /* VideoPlayer.swift */,
 			);
 			path = Digital;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				2E87C5C81EAA519F006332A7 /* HomeController.swift in Sources */,
 				2E2540FA1EC7BF13005D0751 /* VideoViewController.swift in Sources */,
 				2E79A2AF1EAF99ED004AF73D /* UserSearchController.swift in Sources */,
+				2E25411C1EC81916005D0751 /* VideoPlayer.swift in Sources */,
 				2E79A2B11EAF9CB0004AF73D /* UserSearchCell.swift in Sources */,
 				2E2541151EC7BF46005D0751 /* PreviewView.swift in Sources */,
 				2E36675F1E916F6000ADBE83 /* LoginController.swift in Sources */,

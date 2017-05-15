@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = VideoPlayer()
         Fabric.with([Digits.self])
 
         

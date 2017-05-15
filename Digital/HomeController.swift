@@ -137,7 +137,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         height += view.frame.width
         height += 50
         height += 60
-        
+//
         return CGSize(width: view.frame.width, height: height)
     }
     

@@ -46,7 +46,12 @@ class VideoViewController: UIViewController {
     }()
     
     func handleNextButton() {
-        print("123")
+        let sharePhotoController = SharePhotoController()
+        let urlString = "\(videoURL)"
+        sharePhotoController.selectedVideoUrl = urlString
+        let navController = UINavigationController(rootViewController: sharePhotoController)
+        self.present(navController, animated: true, completion: nil)
+
     }
     
     func download() {

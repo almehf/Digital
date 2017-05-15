@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 protocol HomePostCellDelegate {
     func didTapComment(post: Post)
@@ -28,10 +30,16 @@ class HomePostCell: UICollectionViewCell {
             userProfileImageView.loadImage(urlString: profileImageUrl)
             captionLabel.text = post?.caption
             
+            
+            guard let videoStringUrl = post?.videoUrl else { return}
+            videoUrl = videoStringUrl
+            
             setupAttributedCaption()
         }
     }
 
+    var videoUrl = ""
+    
     fileprivate func setupAttributedCaption() {
         guard let post = self.post else { return }
         
@@ -117,28 +125,59 @@ class HomePostCell: UICollectionViewCell {
         return label
     }()
     
+    let containerView :UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    func setupPlayer() {
+        
+        let videoToPlay = URL(string: videoUrl)
+        let player = AVPlayer(url: videoToPlay!)
+        let playerLayer = AVPlayerLayer(player: player)
+        
+        self.photoImageView.layer.addSublayer(playerLayer)
+
+        playerLayer.frame = self.bounds
+        player.play()
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(userProfileImageView)
-        addSubview(usernameLabel)
-        addSubview(optionsButton)
-        addSubview(photoImageView)
-
-        userProfileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
-        userProfileImageView.layer.cornerRadius = 40/2
         
-        usernameLabel.anchor(top: topAnchor, left: userProfileImageView.rightAnchor, bottom: photoImageView.topAnchor, right: optionsButton.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+  
+//        setupMainView()
         
-        optionsButton.anchor(top: topAnchor, left: nil, bottom: photoImageView.topAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 44, height: 0)
-        
-        photoImageView.anchor(top: userProfileImageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
-        photoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
-        
-        
+        setupMainView()
         setupActionButtons()
         
+        if videoUrl != "" {
+                setupPlayer()
+        }
+    }
+    
+    
+    func setupMainView() {
+    addSubview(userProfileImageView)
+    addSubview(usernameLabel)
+    addSubview(optionsButton)
+    addSubview(photoImageView)
+    
+    userProfileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
+    userProfileImageView.layer.cornerRadius = 40/2
+    
+    usernameLabel.anchor(top: topAnchor, left: userProfileImageView.rightAnchor, bottom: photoImageView.topAnchor, right: optionsButton.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
+    optionsButton.anchor(top: topAnchor, left: nil, bottom: photoImageView.topAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 44, height: 0)
+    
+    photoImageView.anchor(top: userProfileImageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
+    photoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+    
     }
     
     func handleComment() {

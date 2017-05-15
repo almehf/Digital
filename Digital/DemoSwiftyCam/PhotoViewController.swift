@@ -47,13 +47,9 @@ class PhotoViewController: UIViewController {
     func handleNextButton() {
         let sharePhotoController = SharePhotoController()
         sharePhotoController.selectedImage = previewImageView.image
-//        present(sharePhotoController, animated: true, completion: nil)
-//        navigationController?.present(sharePhotoController, animated: true, completion: nil)
-        
         let navController = UINavigationController(rootViewController: sharePhotoController)
        
         self.present(navController, animated: true, completion: nil)
-//        self.navigationController?.popToViewController(navController, animated: true)
         
         }
     
