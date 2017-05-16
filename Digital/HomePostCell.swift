@@ -32,13 +32,15 @@ class HomePostCell: UICollectionViewCell {
             
             
             guard let videoStringUrl = post?.videoUrl else { return}
-            videoUrl = videoStringUrl
             
+            videoUrl = videoStringUrl
+            print(videoUrl)
             setupAttributedCaption()
         }
     }
 
     var videoUrl = ""
+    
     
     fileprivate func setupAttributedCaption() {
         guard let post = self.post else { return }
@@ -134,15 +136,28 @@ class HomePostCell: UICollectionViewCell {
     
     func setupPlayer() {
         
+      
+        
+    }
+    
+    lazy var playButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(#imageLiteral(resourceName: "plusicon"), for: .normal)
+        button.addTarget(self, action: #selector(handleVideoPlay), for: .touchUpInside)
+        return button
+        
+    }()
+    
+    func handleVideoPlay() {
         let videoToPlay = URL(string: videoUrl)
         let player = AVPlayer(url: videoToPlay!)
         let playerLayer = AVPlayerLayer(player: player)
         
         self.photoImageView.layer.addSublayer(playerLayer)
-
+        
         playerLayer.frame = self.bounds
         player.play()
-        
     }
     
     override init(frame: CGRect) {
@@ -166,7 +181,8 @@ class HomePostCell: UICollectionViewCell {
     addSubview(usernameLabel)
     addSubview(optionsButton)
     addSubview(photoImageView)
-    
+    addSubview(playButton)
+        
     userProfileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
     userProfileImageView.layer.cornerRadius = 40/2
     
@@ -178,6 +194,11 @@ class HomePostCell: UICollectionViewCell {
     
     photoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
     
+//        playButton.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
+     
+        playButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
     }
     
     func handleComment() {
