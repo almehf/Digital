@@ -13,7 +13,6 @@ import DigitsKit
 
 class LoginController: UIViewController {
     
-    
     let logoContainerView: UIView = {
         let view = UIView()
         

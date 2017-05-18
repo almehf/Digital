@@ -30,6 +30,8 @@
 		2E87C5CA1EAA52AF006332A7 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */; };
 		2EA7E8CF1E98004B0015C315 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */; };
 		2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */; };
+		2EB9F8AF1ECD402B00D67E63 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9F8AE1ECD402B00D67E63 /* CommentCell.swift */; };
+		2EB9F8B11ECDF37100D67E63 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9F8B01ECDF37100D67E63 /* Comment.swift */; };
 		2EC306781EC0BE580070C88A /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306771EC0BE580070C88A /* CameraController.swift */; };
 		2EC306A71EC503860070C88A /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */; };
 		2EC306AE1EC6015A0070C88A /* CustomAnimationPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306AD1EC6015A0070C88A /* CustomAnimationPresentor.swift */; };
@@ -99,6 +101,8 @@
 		2E87C5C91EAA52AF006332A7 /* HomePostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
+		2EB9F8AE1ECD402B00D67E63 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		2EB9F8B01ECDF37100D67E63 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		2EC306771EC0BE580070C88A /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		2EC306AD1EC6015A0070C88A /* CustomAnimationPresentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationPresentor.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				2EED35A31EA270C000906D6D /* Post.swift */,
 				2ECB66971EABA5CE00F4E117 /* User.swift */,
+				2EB9F8B01ECDF37100D67E63 /* Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				2EC306B51EC762900070C88A /* CommentsController.swift */,
+				2EB9F8AE1ECD402B00D67E63 /* CommentCell.swift */,
 			);
 			name = Comment;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 				2E87C5C81EAA519F006332A7 /* HomeController.swift in Sources */,
 				2E2540FA1EC7BF13005D0751 /* VideoViewController.swift in Sources */,
 				2E79A2AF1EAF99ED004AF73D /* UserSearchController.swift in Sources */,
+				2EB9F8AF1ECD402B00D67E63 /* CommentCell.swift in Sources */,
 				2E25411C1EC81916005D0751 /* VideoPlayer.swift in Sources */,
 				2E79A2B11EAF9CB0004AF73D /* UserSearchCell.swift in Sources */,
 				2E2541151EC7BF46005D0751 /* PreviewView.swift in Sources */,
@@ -722,6 +729,7 @@
 				2EC306A71EC503860070C88A /* PreviewPhotoContainerView.swift in Sources */,
 				2EED35A41EA270C000906D6D /* Post.swift in Sources */,
 				2EC306B01EC6059E0070C88A /* CustomAnimationDismisser.swift in Sources */,
+				2EB9F8B11ECDF37100D67E63 /* Comment.swift in Sources */,
 				2EDE921A1E8A09DA0021334D /* Menu.swift in Sources */,
 				2ECB66981EABA5CE00F4E117 /* User.swift in Sources */,
 			);
