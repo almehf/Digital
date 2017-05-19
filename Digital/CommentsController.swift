@@ -127,11 +127,10 @@ class CommentsController: UICollectionViewController, UICollectionViewDelegateFl
     func handleSubmit() {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
         
-        print("post id:", self.post?.id ?? "")
-        
         print("Inserting comment:", commentTextField.text ?? "")
         
         let postId = self.post?.id ?? ""
+        print(postId, "THIS IS THE POST ID")
         let values = ["text": commentTextField.text ?? "", "creationDate": Date().timeIntervalSince1970, "uid": uid] as [String : Any]
         
         FIRDatabase.database().reference().child("comments").child(postId).childByAutoId().updateChildValues(values) { (err, ref) in

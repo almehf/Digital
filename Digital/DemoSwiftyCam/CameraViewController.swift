@@ -118,7 +118,7 @@ class CameraViewController: SwiftyCamViewController, SwiftyCamViewControllerDele
 		captureButton.delegate = self
 
 		flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
-		flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())
+		flipCameraButton.setImage(#imageLiteral(resourceName: "cameraig"), for: UIControlState())
 		flipCameraButton.addTarget(self, action: #selector(cameraSwitchAction(_:)), for: .touchUpInside)
 		self.view.addSubview(flipCameraButton)
 

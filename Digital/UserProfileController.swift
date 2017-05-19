@@ -31,7 +31,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.rgb(red: 33, green: 33, blue: 33)
         collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
         collectionView?.register(UserProfilePhotoCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -40,13 +40,13 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         setupLogOutButton()
         
         fetchUser()
-        //fetchOrderedPosts()
     }
     
     var posts = [Post]()
     
     func didTapComment(post: Post) {
         let commentsController = CommentsController(collectionViewLayout: UICollectionViewFlowLayout())
+        print(post)
         commentsController.post = post
         navigationController?.pushViewController(commentsController, animated: true)
     }
@@ -80,28 +80,75 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         }
     }
     
-    
-    fileprivate func fetchOrderedPosts() {
-        guard let uid = self.user?.uid else { return }
-        let ref = FIRDatabase.database().reference().child("posts").child(uid)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        //perhaps later on we'll implement some pagination of data
-        ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            guard let user = self.user else { return }
-            
-            let post = Post(user: user, dictionary: dictionary)
-            
-            self.posts.insert(post, at: 0)
-            //            self.posts.append(post)
+        self.navigationItem.title = "HELLO"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+ //       self.navigationItem.title = self.user?.username
+    }
+    
+    var user: User?
+    fileprivate func fetchUser() {
+        
+        let uid = userId ?? (FIRAuth.auth()?.currentUser?.uid ?? "")
+        
+        //guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
+            self.user = user
+            self.navigationItem.title = self.user?.username
             
             self.collectionView?.reloadData()
             
+              self.fetchPostsWithUser(user: user)        }
+    }
+    
+    
+    fileprivate func fetchPostsWithUser(user: User) {
+        let ref = FIRDatabase.database().reference().child("posts").child(user.uid)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            self.collectionView?.refreshControl?.endRefreshing()
+            
+            guard let dictionaries = snapshot.value as? [String: Any] else { return }
+            
+            dictionaries.forEach({ (key, value) in
+                guard let dictionary = value as? [String: Any] else { return }
+                
+                var post = Post(user: user, dictionary: dictionary)
+                post.id = key
+                
+                guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+                FIRDatabase.database().reference().child("likes").child(key).child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    print(snapshot)
+                    
+                    if let value = snapshot.value as? Int, value == 1 {
+                        post.hasLiked = true
+                    } else {
+                        post.hasLiked = false
+                    }
+                    
+                    self.posts.append(post)
+                    self.posts.sort(by: { (p1, p2) -> Bool in
+                        return p1.creationDate.compare(p2.creationDate) == .orderedDescending
+                    })
+                    self.collectionView?.reloadData()
+                    
+                }, withCancel: { (err) in
+                    print("Failed to fetch like info for post:", err)
+                })
+            })
+            
         }) { (err) in
-            print("Failed to fetch ordered posts:", err)
+            print("Failed to fetch posts:", err)
         }
     }
+
     
     fileprivate func setupLogOutButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settingscog").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
@@ -146,6 +193,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homePostCellId, for: indexPath) as! HomePostCell
+            cell.delegate = self
+            
             cell.post = posts[indexPath.row]
             return cell
         }
@@ -192,23 +241,32 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 200)
     }
+ 
+    //OLD WAY
     
-    var user: User?
-    fileprivate func fetchUser() {
+    fileprivate func fetchOrderedPosts() {
+        guard let uid = self.user?.uid else { return }
+        let ref = FIRDatabase.database().reference().child("posts").child(uid)
         
-        let uid = userId ?? (FIRAuth.auth()?.currentUser?.uid ?? "")
-        
-        //guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-        
-        FIRDatabase.fetchUserWithUID(uid: uid) { (user) in
-            self.user = user
-            self.navigationItem.title = self.user?.username
+        //perhaps later on we'll implement some pagination of data
+        ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            
+            guard let user = self.user else { return }
+            
+            let post = Post(user: user, dictionary: dictionary)
+            
+            self.posts.insert(post, at: 0)
+            //            self.posts.append(post)
             
             self.collectionView?.reloadData()
             
-            self.fetchOrderedPosts()
+        }) { (err) in
+            print("Failed to fetch ordered posts:", err)
         }
     }
+    
+    
 }
 
 
