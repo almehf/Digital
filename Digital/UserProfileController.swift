@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 class UserProfileController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
     let cellId = "cellId"
     
     var userId: String?

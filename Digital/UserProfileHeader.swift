@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class UserProfileHeader: UICollectionViewCell {
+    
+    
+    
     var user: User? {
         didSet {
             guard let profileImageUrl = user?.profileImageUrl else { return }
@@ -102,7 +105,7 @@ class UserProfileHeader: UICollectionViewCell {
     
     let gridButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "list"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "gridselected"), for: .normal)
         return button
     }()
     
@@ -115,7 +118,7 @@ class UserProfileHeader: UICollectionViewCell {
     
     let bookmarkButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "list"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "ribbon"), for: .normal)
         button.tintColor = UIColor(white: 0, alpha: 0.2)
         return button
     }()

@@ -11,6 +11,7 @@ import UIKit
 
 class UserProfilePhotoCell: UICollectionViewCell {
     
+    
     var post: Post? {
         didSet {
             guard let imageUrl = post?.imageUrl else { return }
@@ -35,4 +36,5 @@ class UserProfilePhotoCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

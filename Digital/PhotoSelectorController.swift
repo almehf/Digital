@@ -159,9 +159,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     
     func handleNext() {
     
-        let sharePhotoController = SharePhotoController()
-        sharePhotoController.selectedImage = header?.photoImageView.image
-        navigationController?.pushViewController(sharePhotoController, animated: true)
+        let shareLocalPhotoController = ShareLocalPhotoController()
+        shareLocalPhotoController.selectedImage = header?.photoImageView.image
+        navigationController?.pushViewController(shareLocalPhotoController, animated: true)
         
     }
     

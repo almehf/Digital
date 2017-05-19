@@ -32,6 +32,8 @@
 		2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */; };
 		2EB9F8AF1ECD402B00D67E63 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9F8AE1ECD402B00D67E63 /* CommentCell.swift */; };
 		2EB9F8B11ECDF37100D67E63 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9F8B01ECDF37100D67E63 /* Comment.swift */; };
+		2EB9F8BA1ECE7CC500D67E63 /* ShareVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9F8B91ECE7CC500D67E63 /* ShareVideoController.swift */; };
+		2EB9F8BD1ECE800100D67E63 /* ShareLocalPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9F8BC1ECE800100D67E63 /* ShareLocalPhotoController.swift */; };
 		2EC306781EC0BE580070C88A /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306771EC0BE580070C88A /* CameraController.swift */; };
 		2EC306A71EC503860070C88A /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */; };
 		2EC306AE1EC6015A0070C88A /* CustomAnimationPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC306AD1EC6015A0070C88A /* CustomAnimationPresentor.swift */; };
@@ -103,6 +105,8 @@
 		2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		2EB9F8AE1ECD402B00D67E63 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		2EB9F8B01ECDF37100D67E63 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		2EB9F8B91ECE7CC500D67E63 /* ShareVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareVideoController.swift; path = DemoSwiftyCam/ShareVideoController.swift; sourceTree = "<group>"; };
+		2EB9F8BC1ECE800100D67E63 /* ShareLocalPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocalPhotoController.swift; sourceTree = "<group>"; };
 		2EC306771EC0BE580070C88A /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		2EC306A61EC503860070C88A /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		2EC306AD1EC6015A0070C88A /* CustomAnimationPresentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationPresentor.swift; sourceTree = "<group>"; };
@@ -270,9 +274,18 @@
 				2EA853841E96BB83009929A6 /* PhotoSelectorController.swift */,
 				2EA7E8CE1E98004B0015C315 /* PhotoSelectorCell.swift */,
 				2EC7E6931E99639B00ECC46B /* PhotoSelectorHeader.swift */,
-				2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */,
 			);
 			name = AddPhoto;
+			sourceTree = "<group>";
+		};
+		2EB9F8BB1ECE7D0800D67E63 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				2EB9F8B91ECE7CC500D67E63 /* ShareVideoController.swift */,
+				2E4B887E1E9D3D9900315465 /* SharePhotoController.swift */,
+				2EB9F8BC1ECE800100D67E63 /* ShareLocalPhotoController.swift */,
+			);
+			name = Share;
 			sourceTree = "<group>";
 		};
 		2EC306B41EC7624E0070C88A /* Comment */ = {
@@ -309,6 +322,7 @@
 		2EF90AE91E88C1E000F542C8 /* Digital */ = {
 			isa = PBXGroup;
 			children = (
+				2EB9F8BB1ECE7D0800D67E63 /* Share */,
 				2E2540E71EC7BF13005D0751 /* Camera */,
 				2EC306B41EC7624E0070C88A /* Comment */,
 				2E1D79611EB260550047022A /* Digital.entitlements */,
@@ -720,9 +734,11 @@
 				2EF90AEB1E88C1E000F542C8 /* AppDelegate.swift in Sources */,
 				2E87C5CA1EAA52AF006332A7 /* HomePostCell.swift in Sources */,
 				2E5095FD1EA7C3C300F07EE2 /* CustomImageView.swift in Sources */,
+				2EB9F8BA1ECE7CC500D67E63 /* ShareVideoController.swift in Sources */,
 				2EC7E6941E99639B00ECC46B /* PhotoSelectorHeader.swift in Sources */,
 				2E2173E01E8D6971003B6A75 /* UserProfileController.swift in Sources */,
 				2E2541161EC7BF46005D0751 /* SwiftyCamButton.swift in Sources */,
+				2EB9F8BD1ECE800100D67E63 /* ShareLocalPhotoController.swift in Sources */,
 				2E4B887F1E9D3D9900315465 /* SharePhotoController.swift in Sources */,
 				2EDE92181E8A05900021334D /* MenuViewController.swift in Sources */,
 				2EA853851E96BB83009929A6 /* PhotoSelectorController.swift in Sources */,
