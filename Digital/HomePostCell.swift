@@ -12,6 +12,7 @@ import AVKit
 
 protocol HomePostCellDelegate {
     func didTapComment(post: Post)
+    func didLike(for cell: HomePostCell)
 }
 
 class HomePostCell: UICollectionViewCell {
@@ -20,7 +21,11 @@ class HomePostCell: UICollectionViewCell {
     
     var post: Post? {
         didSet {
+            
             guard let postImageUrl = post?.imageUrl else {return}
+            
+            likeButton.setImage(post?.hasLiked == true ? #imageLiteral(resourceName: "heartselected").withRenderingMode(.alwaysOriginal) : #imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
+            
             photoImageView.loadImage(urlString: postImageUrl)
             
             usernameLabel.text = post?.user.username
@@ -92,8 +97,14 @@ class HomePostCell: UICollectionViewCell {
         let button = UIButton(type: .custom)
         button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
+        button.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         return button
     }()
+    
+    func handleLike() {
+        print("Handle like")
+        delegate?.didLike(for: self)
+    }
     
     lazy var commentButton: UIButton = {
         let button = UIButton(type: .custom)
