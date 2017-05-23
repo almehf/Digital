@@ -180,6 +180,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        UserProfileHeader.postsLabel.text = "\(posts.count)"
         return posts.count
     }
     

@@ -36,7 +36,42 @@ class UserProfileHeader: UICollectionViewCell {
         
         if currentLoggedInUserId == userId {
             //edit profile
+            
+                let followingRef = FIRDatabase.database().reference().child("following").child(currentLoggedInUserId)
+                
+                followingRef.observe(.value, with: { (snapshot) in
+                    self.followingLabel.text = "\(snapshot.childrenCount)"
+                }) { (err) in
+                    
+                }
+        
+            let followersRef = FIRDatabase.database().reference().child("followers").child(currentLoggedInUserId)
+            
+            followersRef.observe(.value, with: { (snapshot) in
+                self.followersLabel.text = "\(snapshot.childrenCount)"
+            }) { (err) in
+                
+            }
+            
+            
         } else {
+            
+            let followingRef = FIRDatabase.database().reference().child("following").child(userId)
+            
+            followingRef.observe(.value, with: { (snapshot) in
+                self.followingLabel.text = "\(snapshot.childrenCount)"
+            }) { (err) in
+                
+            }
+            
+            let followersRef = FIRDatabase.database().reference().child("followers").child(userId)
+            
+            followersRef.observe(.value, with: { (snapshot) in
+                self.followersLabel.text = "\(snapshot.childrenCount)"
+            }) { (err) in
+                
+            }
+            
             
             // check if following
             FIRDatabase.database().reference().child("following").child(currentLoggedInUserId).child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -75,6 +110,18 @@ class UserProfileHeader: UICollectionViewCell {
                 
                 self.setupFollowStyle()
             })
+           
+            //unfollowers
+            FIRDatabase.database().reference().child("followers").child(userId).child(currentLoggedInUserId).removeValue(completionBlock: { (err, ref) in
+                if let err = err {
+                    print("Failed to unfollow user:", err)
+                    return
+                }
+                
+                print("Successfully unfollowed user:", self.user?.username ?? "")
+                
+            })
+            
             
         } else {
             //follow
@@ -92,6 +139,17 @@ class UserProfileHeader: UICollectionViewCell {
                 self.editProfileFollowButton.setTitle("Unfollow", for: .normal)
                 self.editProfileFollowButton.backgroundColor = .white
                 self.editProfileFollowButton.setTitleColor(.black, for: .normal)
+            }
+        
+        //followers
+            let followersRef = FIRDatabase.database().reference().child("followers").child(userId)
+            let followersValues = [currentLoggedInUserId: 1]
+            followersRef.updateChildValues(followersValues) { (err, ref) in
+                if let err = err {
+                    print("Failed to follow user:", err)
+                    return
+                }
+              
             }
         }
     }
@@ -151,46 +209,76 @@ class UserProfileHeader: UICollectionViewCell {
         return label
     }()
     
-    let postsLabel: UILabel = {
+    
+    
+    static var postsLabel: UILabel = {
         let label = UILabel()
         
-        let attributedText = NSMutableAttributedString(string: "11\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+      //  let attributedText = NSMutableAttributedString(string: "11\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
         
-        attributedText.append(NSAttributedString(string: "posts", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
+//        attributedText.append(NSAttributedString(string: "posts", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
         
-        label.attributedText = attributedText
-        
+ //       label.attributedText = attributedText
+   
+        label.text = "0"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.numberOfLines = 0
+
+        return label
+    }()
+    
+    
+    let postsLabelText: UILabel = {
+        let label = UILabel()
+        label.text = "posts"
+        label.textColor = .white
+         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+    
+    
+    let followersLabelText: UILabel = {
+        let label = UILabel()
+        label.text = "followers"
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+    
+    let followingLabelText: UILabel = {
+        let label = UILabel()
+        label.text = "following"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
     let followersLabel: UILabel = {
         let label = UILabel()
-        
-        let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
-        
-        attributedText.append(NSAttributedString(string: "followers", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
-        
-        label.attributedText = attributedText
-        
+        label.text = "0"
         label.textAlignment = .center
+        label.textColor = .white
         label.numberOfLines = 0
-        return label
+         return label
     }()
     
     let followingLabel: UILabel = {
         let label = UILabel()
-        
-        let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
-        
-        attributedText.append(NSAttributedString(string: "following", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
-        
-        label.attributedText = attributedText
-        
-        label.numberOfLines = 0
+        label.text = "0"
         label.textAlignment = .center
-        return label
+        label.textColor = .white
+        label.numberOfLines = 0
+         return label
     }()
     
     lazy var editProfileFollowButton: UIButton = {
@@ -220,17 +308,39 @@ class UserProfileHeader: UICollectionViewCell {
         
         setupUserStatsView()
         
-        addSubview(editProfileFollowButton)
-        editProfileFollowButton.anchor(top: postsLabel.bottomAnchor, left: postsLabel.leftAnchor, bottom: nil, right: followingLabel.rightAnchor, paddingTop: 2, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 34)
+       
+        
     }
     
     fileprivate func setupUserStatsView() {
-        let stackView = UIStackView(arrangedSubviews: [postsLabel, followersLabel, followingLabel])
+        let stackView = UIStackView(arrangedSubviews: [UserProfileHeader.postsLabel, followersLabel, followingLabel])
         
         stackView.distribution = .fillEqually
         
         addSubview(stackView)
-        stackView.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 50)
+        stackView.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 20)
+        /*
+        let textStackView = UIStackView(arrangedSubviews: [postsLabelText, postsLabelText, postsLabelText])
+        textStackView.distribution = .fillEqually
+        addSubview(textStackView)
+        textStackView.anchor(top: stackView.bottomAnchor, left: profileImageView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 50)
+ */
+        
+        addSubview(postsLabelText)
+        postsLabelText.centerXAnchor.constraint(equalTo: UserProfileHeader.postsLabel.centerXAnchor).isActive = true
+        postsLabelText.topAnchor.constraint(equalTo: UserProfileHeader.postsLabel.bottomAnchor).isActive = true
+   
+        addSubview(followersLabelText)
+        followersLabelText.centerXAnchor.constraint(equalTo: followersLabel.centerXAnchor).isActive = true
+        followersLabelText.topAnchor.constraint(equalTo: followersLabel.bottomAnchor).isActive = true
+   
+        addSubview(followingLabelText)
+        followingLabelText.centerXAnchor.constraint(equalTo: followingLabel.centerXAnchor).isActive = true
+        followingLabelText.topAnchor.constraint(equalTo: followingLabel.bottomAnchor).isActive = true
+        
+        addSubview(editProfileFollowButton)
+        editProfileFollowButton.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: followingLabel.rightAnchor, paddingTop: 2, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 34)
+        
     }
     
     fileprivate func setupBottomToolbar() {
@@ -263,3 +373,5 @@ class UserProfileHeader: UICollectionViewCell {
     
     
 }
+
+
