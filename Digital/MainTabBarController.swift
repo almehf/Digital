@@ -23,6 +23,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             
             return false
         }
+        
+        if index == 4 {
+           // let layout = UICollectionViewFlowLayout()
+           // let userProfileController = UserProfileController(collectionViewLayout: layout)
+//            let navController = UINavigationController(rootViewController: userProfileController)
+    //        let mainTab = MainTabBarController()
+    //        mainTab.present(navController, animated: false, completion: nil)
+        }
+        
         return true
     }
     

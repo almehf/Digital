@@ -83,16 +83,12 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.navigationItem.title = "HELLO"
+        self.navigationItem.title = user?.username
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
- //       self.navigationItem.title = self.user?.username
-    }
     
     var user: User?
+   
     fileprivate func fetchUser() {
         
         let uid = userId ?? (FIRAuth.auth()?.currentUser?.uid ?? "")
@@ -155,6 +151,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     }
     
     func handleLogOut() {
+        
+        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
@@ -177,10 +175,12 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alertController, animated: true, completion: nil)
+ 
+      
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        UserProfileHeader.postsLabel.text = "\(posts.count)"
+  //      UserProfileHeader.postsLabel.text = "\(posts.count)"
         return posts.count
     }
     
@@ -243,30 +243,6 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         return CGSize(width: view.frame.width, height: 200)
     }
  
-    //OLD WAY
-    
-    fileprivate func fetchOrderedPosts() {
-        guard let uid = self.user?.uid else { return }
-        let ref = FIRDatabase.database().reference().child("posts").child(uid)
-        
-        //perhaps later on we'll implement some pagination of data
-        ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            guard let user = self.user else { return }
-            
-            let post = Post(user: user, dictionary: dictionary)
-            
-            self.posts.insert(post, at: 0)
-            //            self.posts.append(post)
-            
-            self.collectionView?.reloadData()
-            
-        }) { (err) in
-            print("Failed to fetch ordered posts:", err)
-        }
-    }
-    
     
 }
 

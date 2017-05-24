@@ -26,8 +26,11 @@ class UserProfileHeader: UICollectionViewCell {
             usernameLabel.text = user?.username
             
             setupEditFollowButton()
+        
         }
     }
+    
+
     
     fileprivate func setupEditFollowButton() {
         guard let currentLoggedInUserId = FIRAuth.auth()?.currentUser?.uid else { return }
@@ -53,6 +56,13 @@ class UserProfileHeader: UICollectionViewCell {
                 
             }
             
+            let postsRef = FIRDatabase.database().reference().child("posts").child(currentLoggedInUserId)
+            
+            postsRef.observe(.value, with: { (snapshot) in
+                self.postsLabel.text = "\(snapshot.childrenCount)"
+            }) { (err) in
+                
+            }
             
         } else {
             
@@ -68,6 +78,14 @@ class UserProfileHeader: UICollectionViewCell {
             
             followersRef.observe(.value, with: { (snapshot) in
                 self.followersLabel.text = "\(snapshot.childrenCount)"
+            }) { (err) in
+                
+            }
+            
+            let postsRef = FIRDatabase.database().reference().child("posts").child(userId)
+            
+            postsRef.observe(.value, with: { (snapshot) in
+                self.postsLabel.text = "\(snapshot.childrenCount)"
             }) { (err) in
                 
             }
@@ -211,15 +229,8 @@ class UserProfileHeader: UICollectionViewCell {
     
     
     
-    static var postsLabel: UILabel = {
+    var postsLabel: UILabel = {
         let label = UILabel()
-        
-      //  let attributedText = NSMutableAttributedString(string: "11\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
-        
-//        attributedText.append(NSAttributedString(string: "posts", attributes: [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
-        
- //       label.attributedText = attributedText
-   
         label.text = "0"
         label.textAlignment = .center
         label.textColor = .white
@@ -313,7 +324,7 @@ class UserProfileHeader: UICollectionViewCell {
     }
     
     fileprivate func setupUserStatsView() {
-        let stackView = UIStackView(arrangedSubviews: [UserProfileHeader.postsLabel, followersLabel, followingLabel])
+        let stackView = UIStackView(arrangedSubviews: [postsLabel, followersLabel, followingLabel])
         
         stackView.distribution = .fillEqually
         
@@ -327,8 +338,8 @@ class UserProfileHeader: UICollectionViewCell {
  */
         
         addSubview(postsLabelText)
-        postsLabelText.centerXAnchor.constraint(equalTo: UserProfileHeader.postsLabel.centerXAnchor).isActive = true
-        postsLabelText.topAnchor.constraint(equalTo: UserProfileHeader.postsLabel.bottomAnchor).isActive = true
+        postsLabelText.centerXAnchor.constraint(equalTo: postsLabel.centerXAnchor).isActive = true
+        postsLabelText.topAnchor.constraint(equalTo: postsLabel.bottomAnchor).isActive = true
    
         addSubview(followersLabelText)
         followersLabelText.centerXAnchor.constraint(equalTo: followersLabel.centerXAnchor).isActive = true
@@ -339,7 +350,7 @@ class UserProfileHeader: UICollectionViewCell {
         followingLabelText.topAnchor.constraint(equalTo: followingLabel.bottomAnchor).isActive = true
         
         addSubview(editProfileFollowButton)
-        editProfileFollowButton.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: followingLabel.rightAnchor, paddingTop: 2, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 34)
+        editProfileFollowButton.anchor(top: followersLabelText.bottomAnchor, left: stackView.leftAnchor, bottom: nil, right: followingLabel.rightAnchor, paddingTop: 2, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 34)
         
     }
     
@@ -352,7 +363,6 @@ class UserProfileHeader: UICollectionViewCell {
         bottomDividerView.backgroundColor = UIColor.lightGray
         
         let stackView = UIStackView(arrangedSubviews: [gridButton, listButton, bookmarkButton])
-        
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         
@@ -370,6 +380,8 @@ class UserProfileHeader: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
     
     
 }
