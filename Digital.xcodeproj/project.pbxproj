@@ -478,7 +478,7 @@
 				TargetAttributes = {
 					2EF90AE61E88C1E000F542C8 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 523V3UVQR9;
+						DevelopmentTeam = A8SEL6VZYW;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -902,7 +902,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Digital/Digital.entitlements;
-				DEVELOPMENT_TEAM = 523V3UVQR9;
+				DEVELOPMENT_TEAM = A8SEL6VZYW;
 				INFOPLIST_FILE = Digital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Andryuschenko.Digital;
@@ -920,7 +920,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Digital/Digital.entitlements;
-				DEVELOPMENT_TEAM = 523V3UVQR9;
+				DEVELOPMENT_TEAM = A8SEL6VZYW;
 				INFOPLIST_FILE = Digital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Andryuschenko.Digital;

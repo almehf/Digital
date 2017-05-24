@@ -149,11 +149,15 @@ class LoginController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
         
-       
-
-
+        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.isUserInteractionEnabled = true
+        self.view.addGestureRecognizer(tapGesture)
+     
     }
     
+    func handleTap(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     
     var users = [User]()
     fileprivate func setupInputFields() {

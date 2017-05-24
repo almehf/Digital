@@ -216,6 +216,15 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         plusPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         setupInputFields()
+        
+        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.isUserInteractionEnabled = true
+        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     fileprivate func setupInputFields() {
