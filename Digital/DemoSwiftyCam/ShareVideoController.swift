@@ -141,7 +141,7 @@ class ShareVideoController : UIViewController {
         
         let ref = userPostRef.childByAutoId()
         
-        let values = ["imageUrl": imageUrl, "caption": caption, "imageWithd": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]
+        let values = ["imageUrl": imageUrl, "type": "video", "caption": caption, "imageWithd": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]
         ref.updateChildValues(values) { (error, ref) in
             if let error = error {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -185,7 +185,7 @@ class ShareVideoController : UIViewController {
                         
                         guard let caption = self.textView.text else { return }
                         
-                        let values = ["imageUrl": imageUrl as AnyObject, "imageWidth": thumbnailImage.size.width as AnyObject, "imageHeight": thumbnailImage.size.height as AnyObject, "videoUrl": videoUrl, "caption": caption, "creationDate": Date().timeIntervalSince1970] as [String : Any]
+                        let values = ["imageUrl": imageUrl as AnyObject, "type": "video", "imageWidth": thumbnailImage.size.width as AnyObject, "imageHeight": thumbnailImage.size.height as AnyObject, "videoUrl": videoUrl, "caption": caption, "creationDate": Date().timeIntervalSince1970] as [String : Any]
                         
                         
                         self.saveToDatabaseWithVideoUrl(videoUrl: videoUrl, values: values as [String : AnyObject])

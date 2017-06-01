@@ -123,8 +123,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func setupNavigationItems() {
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "DIGITAL"))
  
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleCamera))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "cameraSmall").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleCamera))
  
         
     }

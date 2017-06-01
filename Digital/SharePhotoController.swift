@@ -113,7 +113,7 @@ class SharePhotoController : UIViewController {
         
         let ref = userPostRef.childByAutoId()
         
-        let values = ["imageUrl": imageUrl, "caption": caption, "imageWithd": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]
+        let values = ["imageUrl": imageUrl, "caption": caption, "type": "photo", "imageWithd": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]
         ref.updateChildValues(values) { (error, ref) in
             if let error = error {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true

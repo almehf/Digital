@@ -24,14 +24,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             return false
         }
         
-        if index == 4 {
-           // let layout = UICollectionViewFlowLayout()
-           // let userProfileController = UserProfileController(collectionViewLayout: layout)
-//            let navController = UINavigationController(rootViewController: userProfileController)
-    //        let mainTab = MainTabBarController()
-    //        mainTab.present(navController, animated: false, completion: nil)
-        }
-        
         return true
     }
     
@@ -68,9 +60,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let searchNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "Searchunselected"), selectedImage: #imageLiteral(resourceName: "Searchselected"), rootViewController: UserSearchController(collectionViewLayout: UICollectionViewFlowLayout()))
         
-        let plusNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "plusicon"), selectedImage: #imageLiteral(resourceName: "plusicon"))
+        let plusNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "AddPhoto"), selectedImage: #imageLiteral(resourceName: "AddPhoto"))
         
-        let likeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "Heartunselected"), selectedImage: #imageLiteral(resourceName: "heartselected"))
+        let likeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "HeartUnselected"), selectedImage: #imageLiteral(resourceName: "heartselected"))
         
        //user profile
         let layout = UICollectionViewFlowLayout()

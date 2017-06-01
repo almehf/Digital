@@ -24,7 +24,9 @@ class HomePostCell: UICollectionViewCell {
             
             guard let postImageUrl = post?.imageUrl else {return}
             
-            likeButton.setImage(post?.hasLiked == true ? #imageLiteral(resourceName: "heartselected").withRenderingMode(.alwaysOriginal) : #imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysOriginal), for: .normal)
+            likeButton.setImage(post?.hasLiked == true ? #imageLiteral(resourceName: "heartselected").withRenderingMode(.alwaysOriginal) : #imageLiteral(resourceName: "HeartUnselected").withRenderingMode(.alwaysOriginal), for: .normal)
+            
+            likeButton.tintColor = .white
             
             photoImageView.loadImage(urlString: postImageUrl)
             
@@ -39,8 +41,14 @@ class HomePostCell: UICollectionViewCell {
             guard let videoStringUrl = post?.videoUrl else { return}
             
             videoUrl = videoStringUrl
-            print(videoUrl)
             setupAttributedCaption()
+            
+            if post?.type == "video" {
+                playButton.isHidden = false
+            } else {
+                playButton.isHidden = true
+            }
+            
         }
     }
     
@@ -63,7 +71,7 @@ class HomePostCell: UICollectionViewCell {
     
     let userProfileImageView: CustomImageView = {
         let iv = CustomImageView()
-        iv.backgroundColor = .blue
+        iv.backgroundColor = .clear
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -95,7 +103,7 @@ class HomePostCell: UICollectionViewCell {
     
     lazy var likeButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(#imageLiteral(resourceName: "Heartunselected").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "HeartUnselected").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         return button
@@ -140,7 +148,7 @@ class HomePostCell: UICollectionViewCell {
     
     let containerView :UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -242,8 +250,9 @@ class HomePostCell: UICollectionViewCell {
         
         activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
+      
     }
+    
     
     func handleComment() {
         guard let post = post else {return}

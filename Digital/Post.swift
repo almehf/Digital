@@ -18,12 +18,13 @@ struct Post {
     let caption: String
     let creationDate: Date
     let videoUrl: String
-    
+    let type: String
     
     var hasLiked = false
     
     init(user: User, dictionary: [String: Any]) {
         self.user = user
+        self.type = dictionary["type"] as? String ?? ""
         self.imageUrl = dictionary["imageUrl"] as? String ?? ""
         self.caption = dictionary["caption"] as? String ?? ""
         self.videoUrl = dictionary["videoUrl"] as? String ?? ""
